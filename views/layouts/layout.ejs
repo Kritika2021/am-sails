@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>New Sails App</title>
+
+    <!-- Viewport mobile tag for sensible mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <%/* If you want to discourage search engines from indexing this site, uncomment the following line: */%>
+    <%/* <meta name="robots" content="noindex"> */%>
+
+
+    <!--
+        Stylesheets and Preprocessors
+        ==============================
+
+        You can always bring in CSS files manually with `<link>` tags, or asynchronously
+        using a solution like AMD (RequireJS).  Or, if you like, you can take advantage
+        of Sails' conventional asset pipeline (boilerplate Gruntfile).
+
+        By default, stylesheets from your `assets/styles` folder are included
+        here automatically (between STYLES and STYLES END). Both CSS (.css) and LESS (.less)
+        are supported. In production, your styles will be minified and concatenated into
+        a single file.
+
+        To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
+        For example, here are a few things you could do:
+
+            + Change the order of your CSS files
+            + Import stylesheets from other directories
+            + Use a different or additional preprocessor, like SASS, SCSS or Stylus
+    -->
+
+    <!--STYLES-->
+    <link rel="stylesheet" href="/styles/importer.css">
+    <!--STYLES END-->
+  </head>
+
+  <body>
+    <%- body %>
+
+
+
+    <!--
+        Client-side Templates
+        ========================
+
+        HTML templates are important prerequisites of modern, rich client applications.
+        To work their magic, frameworks like React, Vue.js, Angular, Ember, and Backbone
+        require that you load these templates client-side.
+
+        By default, your Gruntfile is configured to automatically load and precompile
+        client-side JST templates in your `assets/templates` folder, then
+        include them here automatically (between TEMPLATES and TEMPLATES END).
+
+        To customize this behavior to fit your needs, just edit `tasks/pipeline.js`.
+        For example, here are a few things you could do:
+
+            + Import templates from other directories
+            + Use a different view engine (handlebars, dust, pug/jade, etc.)
+            + Internationalize your client-side templates using a server-side
+              stringfile before they're served.
+    -->
+
+    <!--TEMPLATES-->
+    <!--TEMPLATES END-->
+
+
+    <!--
+        Server-side View Locals
+        ========================
+
+        Sometimes, it's convenient to get access to your server-side view locals from
+        client-side JavaScript.  This can improve page load times, remove the need for
+        extra AJAX requests, and make your client-side code easier to understand and
+        to maintain.  Sails provides a simple mechanism for accessing dynamic view
+        locals: the "exposeLocalsToBrowser()" view partial.
+
+        For more information on using this built-in feature, see:
+        https://sailsjs.com/docs/concepts/views/locals#?escaping-untrusted-data-using-exposelocalstobrowser
+
+    -->
+
+
+    <!--
+
+      Client-side Javascript
+      ========================
+
+      You can always bring in JS files manually with `script` tags, or asynchronously
+      on the client using a solution like AMD (RequireJS).  Or, if you like, you can
+      take advantage of Sails' conventional asset pipeline (boilerplate Gruntfile).
+
+      By default, files in your `assets/js` folder are included here
+      automatically (between SCRIPTS and SCRIPTS END).  Both JavaScript (.js) and
+      CoffeeScript (.coffee) are supported. In production, your scripts will be minified
+      and concatenated into a single file.
+
+      To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
+      For example, here are a few things you could do:
+
+          + Change the order of your scripts
+          + Import scripts from other directories
+          + Use a different preprocessor, like TypeScript
+
+    -->
+
+    <!--SCRIPTS-->
+    <script src="/dependencies/sails.io.js"></script>
+    <script src="/js/sails.io.js"></script>
+    <script src="/js/sails.io.js/dependencies/amd_instructions.js"></script>
+    <script src="/js/sails.io.js/dist/sails.io.js"></script>
+    <script src="/js/sails.io.js/example/server.js"></script>
+    <script src="/js/sails.io.js/sails.io.js"></script>
+    <script src="/js/sails.io.js/test/basic.test.js"></script>
+    <script src="/js/sails.io.js/test/browser.attr.test.js"></script>
+    <script src="/js/sails.io.js/test/disconnect.test.js"></script>
+    <script src="/js/sails.io.js/test/helpers/lifecycle.js"></script>
+    <script src="/js/sails.io.js/test/helpers/phantom.js"></script>
+    <script src="/js/sails.io.js/test/helpers/setupRoutes.js"></script>
+    <script src="/js/sails.io.js/test/query.test.js"></script>
+    <script src="/js/sails.io.js/test/queue.test.js"></script>
+    <script src="/js/sails.io.js/test/websocket-only.test.js"></script>
+    <script src="/js/socket.io/lib/client.js"></script>
+    <script src="/js/socket.io/lib/index.js"></script>
+    <script src="/js/socket.io/lib/namespace.js"></script>
+    <script src="/js/socket.io/lib/parent-namespace.js"></script>
+    <script src="/js/socket.io/lib/socket.js"></script>
+    <script src="/js/socket.io/node_modules/debug/dist/debug.js"></script>
+    <script src="/js/socket.io/node_modules/debug/src/browser.js"></script>
+    <script src="/js/socket.io/node_modules/debug/src/common.js"></script>
+    <script src="/js/socket.io/node_modules/debug/src/index.js"></script>
+    <script src="/js/socket.io/node_modules/debug/src/node.js"></script>
+    <script src="/js/socket.io/node_modules/engine.io-client/engine.io.js"></script>
+    <script src="/js/socket.io/node_modules/engine.io-client/lib/globalThis.browser.js"></script>
+    <script src="/js/socket.io/node_modules/engine.io-client/lib/globalThis.js"></script>
+    <script src="/js/socket.io/node_modules/engine.io-client/lib/index.js"></script>
+    <script src="/js/socket.io/node_modules/engine.io-client/lib/socket.js"></script>
+    <script src="/js/socket.io/node_modules/engine.io-client/lib/transport.js"></script>
+    <script src="/js/socket.io/node_modules/engine.io-client/lib/transports/index.js"></script>
+    <script src="/js/socket.io/node_modules/engine.io-client/lib/transports/polling-jsonp.js"></script>
+    <script src="/js/socket.io/node_modules/engine.io-client/lib/transports/polling-xhr.js"></script>
+    <script src="/js/socket.io/node_modules/engine.io-client/lib/transports/polling.js"></script>
+    <script src="/js/socket.io/node_modules/engine.io-client/lib/transports/websocket.js"></script>
+    <script src="/js/socket.io/node_modules/engine.io-client/lib/transports/xmlhttprequest.browser.js"></script>
+    <script src="/js/socket.io/node_modules/engine.io-client/lib/transports/xmlhttprequest.js"></script>
+    <script src="/js/socket.io/node_modules/engine.io-client/node_modules/debug/karma.conf.js"></script>
+    <script src="/js/socket.io/node_modules/engine.io-client/node_modules/debug/node.js"></script>
+    <script src="/js/socket.io/node_modules/engine.io-client/node_modules/debug/src/browser.js"></script>
+    <script src="/js/socket.io/node_modules/engine.io-client/node_modules/debug/src/debug.js"></script>
+    <script src="/js/socket.io/node_modules/engine.io-client/node_modules/debug/src/index.js"></script>
+    <script src="/js/socket.io/node_modules/engine.io-client/node_modules/debug/src/node.js"></script>
+    <script src="/js/socket.io/node_modules/engine.io-client/node_modules/ms/index.js"></script>
+    <script src="/js/socket.io/node_modules/isarray/index.js"></script>
+    <script src="/js/socket.io/node_modules/ms/index.js"></script>
+    <script src="/js/socket.io/node_modules/socket.io-client/dist/socket.io.dev.js"></script>
+    <script src="/js/socket.io/node_modules/socket.io-client/dist/socket.io.js"></script>
+    <script src="/js/socket.io/node_modules/socket.io-client/dist/socket.io.slim.dev.js"></script>
+    <script src="/js/socket.io/node_modules/socket.io-client/dist/socket.io.slim.js"></script>
+    <script src="/js/socket.io/node_modules/socket.io-client/lib/index.js"></script>
+    <script src="/js/socket.io/node_modules/socket.io-client/lib/manager.js"></script>
+    <script src="/js/socket.io/node_modules/socket.io-client/lib/on.js"></script>
+    <script src="/js/socket.io/node_modules/socket.io-client/lib/socket.js"></script>
+    <script src="/js/socket.io/node_modules/socket.io-client/lib/url.js"></script>
+    <script src="/js/socket.io/node_modules/socket.io-client/node_modules/debug/karma.conf.js"></script>
+    <script src="/js/socket.io/node_modules/socket.io-client/node_modules/debug/node.js"></script>
+    <script src="/js/socket.io/node_modules/socket.io-client/node_modules/debug/src/browser.js"></script>
+    <script src="/js/socket.io/node_modules/socket.io-client/node_modules/debug/src/debug.js"></script>
+    <script src="/js/socket.io/node_modules/socket.io-client/node_modules/debug/src/index.js"></script>
+    <script src="/js/socket.io/node_modules/socket.io-client/node_modules/debug/src/node.js"></script>
+    <script src="/js/socket.io/node_modules/socket.io-client/node_modules/ms/index.js"></script>
+    <script src="/js/socket.io/node_modules/socket.io-client/node_modules/socket.io-parser/binary.js"></script>
+    <script src="/js/socket.io/node_modules/socket.io-client/node_modules/socket.io-parser/index.js"></script>
+    <script src="/js/socket.io/node_modules/socket.io-client/node_modules/socket.io-parser/is-buffer.js"></script>
+    <script src="/js/socket.io/node_modules/xmlhttprequest-ssl/example/demo.js"></script>
+    <script src="/js/socket.io/node_modules/xmlhttprequest-ssl/lib/XMLHttpRequest.js"></script>
+    <script src="/js/socket.io/node_modules/xmlhttprequest-ssl/tests/test-constants.js"></script>
+    <script src="/js/socket.io/node_modules/xmlhttprequest-ssl/tests/test-events.js"></script>
+    <script src="/js/socket.io/node_modules/xmlhttprequest-ssl/tests/test-exceptions.js"></script>
+    <script src="/js/socket.io/node_modules/xmlhttprequest-ssl/tests/test-headers.js"></script>
+    <script src="/js/socket.io/node_modules/xmlhttprequest-ssl/tests/test-redirect-302.js"></script>
+    <script src="/js/socket.io/node_modules/xmlhttprequest-ssl/tests/test-redirect-303.js"></script>
+    <script src="/js/socket.io/node_modules/xmlhttprequest-ssl/tests/test-redirect-307.js"></script>
+    <script src="/js/socket.io/node_modules/xmlhttprequest-ssl/tests/test-request-methods.js"></script>
+    <script src="/js/socket.io/node_modules/xmlhttprequest-ssl/tests/test-request-protocols.js"></script>
+    <!--SCRIPTS END-->
+  </body>
+</html>
