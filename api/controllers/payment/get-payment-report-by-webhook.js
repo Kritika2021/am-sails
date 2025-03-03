@@ -75,10 +75,19 @@ module.exports = {
                         let params = [userInfo[0].conversation_thread_id, message, userInfo[0].user_id, "SYSTEM"];
                         sails.sendNativeQuery("CALL addNewQueryConversationChat(?,?,?,?)", params)
                           
-                         // my new added line
-                            
                         // To do // notification
                         // notificationsControllerObj.sendNotificationUserCompletePayment(userInfo[0].conversation_thread_id, userInfo[0].user_id,userInfo[0].total_amount,userInfo[0].username)
+
+                         await sails.helpers.sendNotification.with({
+                              title: constants.notifications_title.USER_PAYMENT,
+                              message: userInfo[0].username+constants.notifications_message.USER_PAYMENT_MESSAGE+userInfo[0].total_amount,
+                              from_user_id: userInfo[0].user_id , // user id
+                              to_user_id : 1, // admin
+                              chat_id: userInfo[0].conversation_thread_id,
+                              unique_code: 110,//from_user_id+""+to_user_id+""+chat_id,
+                              type:constants.notify_about.PAYMENT_COMPLETE_NOTIFY
+                             // user_type: req.admin_id
+                             });
                         }
                     }
                     else if(userInfo[0].payment_for == 'REGISTRATION'){
@@ -89,8 +98,36 @@ module.exports = {
                         let params = [userInfo[0].conversation_thread_id, message, userInfo[0].user_id, "SYSTEM"];
                         sails.sendNativeQuery("CALL addNewQueryConversationChat(?,?,?,?)", params)
 
-                            /// To do / notification
-                            // notificationsControllerObj.newPaidUserCreateNotifications(userFirstQuery[0][0].question_thread_id, userFirstQuery[0][0].user_id,userFirstQuery[0][0].conversation_content,userInfo[0].username)
+                    /// To do / notification
+                    // notificationsControllerObj.newPaidUserCreateNotifications(userFirstQuery[0][0].question_thread_id, userFirstQuery[0][0].user_id,userFirstQuery[0][0].conversation_content,userInfo[0].username)
+
+
+                            let message =   userFirstQuery[0].conversation_content ;
+                            let username =  userInfo[0].username;
+                            let user_id = userFirstQuery[0].user_id;
+
+                            let content = S(message).stripTags().s;
+                             let obj = {
+                                    title: constants.notifications_title.PAID_QUERY+username,
+                                    message: content,
+                                    user_id: user_id,
+                                    thread_id: threadId,
+                                    sender_type: constants.userTypes.USER,
+                                    receiver_type: constants.userTypes.ADMIN,
+                                    notify_about:constants.notify_about.PAID_QUERY_NOTIFY,
+                                };
+                            // await notificationsBAObj.newAdminThreadNotificationsBA(obj);
+    \                           let params = [obj.title, obj.message, obj.user_id, obj.thread_id, obj.notify_about]
+                                await sails.sendNativeQuery("INSERT INTO notification (title,message,from_user_id,chat_id,type) VALUES (?,?,?,?,?)", params)
+                            
+                                // let FCMtoken = await notificationsBAObj.getAllAdminFCMtokenBA()
+                                // if(FCMtoken){
+                                //     await notificationObj.sendWebNotification(obj,FCMtoken)
+                                // }
+                        }
+                        catch (e) {
+                                    console.log("error",e);
+                        }
                          }
                     }
                 }else if(report.status.toUpperCase() == constants.PAYMENT_STATUS.FAILED){
