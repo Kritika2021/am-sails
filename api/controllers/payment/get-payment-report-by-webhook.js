@@ -75,7 +75,8 @@ module.exports = {
                         let params = [userInfo[0].conversation_thread_id, message, userInfo[0].user_id, "SYSTEM"];
                         sails.sendNativeQuery("CALL addNewQueryConversationChat(?,?,?,?)", params)
                           
-                           
+                         // my new added line
+                            
                         // To do // notification
                         // notificationsControllerObj.sendNotificationUserCompletePayment(userInfo[0].conversation_thread_id, userInfo[0].user_id,userInfo[0].total_amount,userInfo[0].username)
                         }
